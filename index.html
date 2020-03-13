@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid" style="display: flex; justify-content: center; padding-top: 0.2%;">
+        <h2 class="text-danger">DEMO MÔN TRÍ TUỆ NHÂN TẠO (IT4040) </h2>  
+    </div>
+    <div class="container-fluid" style="display: flex; justify-content: center; padding-bottom: 1%;">
+       <h3 class="text-danger">Áp dụng A* tìm đường đi trong mê cung</h3>
+    </div>
+    <div class="row" id="hold">
+        <div class="col-5">
+            <h3 class="text-danger" style="text-align: center">Nhóm 7:</h3>
+            <h5 class="text-danger" style="text-align: center; padding-left: 2%; padding-bottom: 3% ">Giảng viên hướng dẫn: Nguyễn Nhật Quang</h5>
+            <h5 class="text-danger" style="text-align: center; padding-left: 2%; padding-bottom: 3% ">Sinh viên: Lê Trọng Đức - Đỗ Ngọc Sơn</h5>
+            <form class="content">
+                <div class="option">
+                    <label class="form-check-label" for="exampleCheck1">Chọn chế độ nước đi</label>
+                    <div class="option">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="diagonal" value="allowdiagonal" checked>
+                            <label class="form-check-label" for="diagonal">
+                                Cho phép đi chéo
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="diagonal" value="notallowdiagonal">
+                            <label class="form-check-label" for="diagonal">
+                                Không cho phép đi chéo
+                            </label>
+                        </div>
+                    </div>
+                    <label class="form-check-label" for="exampleCheck1">Chọn hàm heuristic</label>
+                    <div class="option">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="heuristic" value="1" check>
+                            <label class="form-check-label" for="heuristic">
+                                Euclide
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="heuristic" value="2">
+                            <label class="form-check-label" for="heuristic">
+                                Euclide without square
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="heuristic" value="3">
+                            <label class="form-check-label" for="heuristic">
+                                Chebychev
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="heuristic" value="4">
+                            <label class="form-check-label" for="heuristic">
+                                Mahatan
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="heuristic" value="5">
+                            <label class="form-check-label" for="heuristic">
+                                Octile
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="heuristic" value="6">
+                            <label class="form-check-label" for="heuristic">
+                                Tie-Breaking
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="heuristic" value="7">
+                            <label class="form-check-label" for="heuristic">
+                                Angle_Euclide
+                            </label>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <p>Mode: <span id="mode">Select source and destination</span></p>
+                        <button type="button" class="btn btn-success col-5" id="createMaze">Maze Generating</button>
+                        <button type="button" class="btn btn-success col-7" id="selectSD">Select Source-Destination</button>
+                    </div>
+                    <div class="option">
+                        <p>Kết quả:</p>
+                        <p>Số ô trên đường đi: <span id="result"></span></p>
+                        <p>Tổng chi phí đường đi: <span id="cost"></span></span></p>
+                        <p>Số ô phải xét: <span id="considered"></span></span></p>
+                    </div>
+                    <button type="button" class="btn btn-success" id="clearMaze">Clear Maze</button>
+                    <button type="button" class="btn btn-success" id="reload">New Session</button>
+                </div>
+            </form>
+        </div>    
+        <div class="col-7 content" id="sketch-holder"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="main.js" type="text/javascript"></script>
+</body>
+</html>
