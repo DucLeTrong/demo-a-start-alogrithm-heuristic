@@ -8,6 +8,8 @@ Giảng viên hướng dẫn: TS.Nguyễn Nhật Quang
 
 Sinh viên thực hiện: Lê Trọng Đức - Đỗ Ngọc Sơn
 
+[Truy cập đường link để trực tiếp phần đề mô](https://ducletrong.github.io/demo-a-start-alogrithm-heuristic/)
+
 ## Lời nói đầu
 
 Tìm đường đi trong mê cung sử dụng A* là một bài toán kinh điển và quen thuộc đã xuất hiện trong nhiều giáo trình, sách vở và các bài nghiên cứu. 
