@@ -8,7 +8,7 @@ Giảng viên hướng dẫn: TS.Nguyễn Nhật Quang
 
 Sinh viên thực hiện: Lê Trọng Đức - Đỗ Ngọc Sơn
 
-[Truy cập đường link để trực tiếp phần đề mô](https://ducletrong.github.io/demo-a-start-alogrithm-heuristic/)
+[Truy cập đường link để trực tiếp phần demo](https://ducletrong.github.io/demo-a-start-alogrithm-heuristic/)
 
 ## Lời nói đầu
 
